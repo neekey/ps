@@ -10,7 +10,7 @@ $ npm install ps-node
 
 ## Usage
 
-Lookup process with spicified `pid`.
+Lookup process with spicified `pid`:
 
 ```javascript
 var ps = require('ps-node');
@@ -42,7 +42,7 @@ var ps = require('ps-node');
 // A simple pid lookup
 ps.lookup({
     command: 'node',
-    arguments: '--debug'
+    arguments: '--debug',
     }, function(err, resultList ) {
     if (err) {
         throw new Error( err );
@@ -58,7 +58,7 @@ ps.lookup({
 
 ```
 
-Also, you can use `kill` to kill process by `pid`;
+Also, you can use `kill` to kill process by `pid`:
 
 ```javascript
 var ps = require('ps-node');
@@ -72,4 +72,27 @@ ps.kill( '12345', function( err ) {
         console.log( 'Process %s has been killed!', pid );
     }
 });
+```
+
+You can also pass arguments to `ls` with `psargs`:
+
+```javascript
+var ps = require('ps-node');
+
+// A simple pid lookup
+ps.lookup({
+    command: 'node',
+    psargs: 'ux'
+    }, function(err, resultList ) {
+    if (err) {
+        throw new Error( err );
+    }
+
+    resultList.forEach(function( process ){
+        if( process ){
+            console.log( 'PID: %s, COMMAND: %s, ARGUMENTS: %s', process.pid, process.command, process.arguments );
+        }
+    });
+});
+
 ```
