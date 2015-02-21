@@ -1,11 +1,11 @@
 {
-    "name": "ps-node",
+    "name": "ps-nodejs",
     "version": "0.0.4",
     "description": "A process lookup utility",
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "git://github.com/neekey/ps.git"
+        "url": "git://github.com/neversay/ps.git"
     },
     "keywords": [
         "ps",
