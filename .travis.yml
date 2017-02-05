@@ -10,3 +10,10 @@ node_js:
   - "4.1"
   - "4.0"
   - "0.12"
+deploy:
+  provider: npm
+  email: $NPM_EMAIL
+  api_key:
+    secure: $NPM_API_KEY
+  on:
+    branch: master
