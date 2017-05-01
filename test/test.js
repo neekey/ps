@@ -199,7 +199,8 @@ describe('test', function () {
   });
 });
 
-describe('test command with space', function () {
+// don't run on Windows
+(process.platform === 'win32' ? describe.skip : describe)('test command with space', function () {
   var sleep = 1;
 
   before(function () {
