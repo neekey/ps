@@ -1,12 +1,12 @@
 os:
-- linux
+  - osx
+  - linux
 language: node_js
 node_js:
-- '7'
-- '6'
-- '5'
-- '4'
-- '0.12'
+  - '7'
+  - '6'
+  - '5'
+  - '4'
 branches:
   only:
     - master
