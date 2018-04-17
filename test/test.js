@@ -5,7 +5,7 @@ var Path = require('path');
 var Sinon = require('sinon');
 
 var serverPath = Path.resolve(__dirname, './node_process_for_test.js');
-var serverPathSpace = Path.resolve(__dirname, './with space/sleep with space');
+var serverPathSpace = Path.resolve(__dirname, './with space/sleep with space.sh');
 var UpperCaseArg = '--UPPER_CASE';
 var child = null;
 var pid = null;
