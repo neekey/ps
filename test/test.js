@@ -5,6 +5,7 @@ var Path = require('path');
 var Sinon = require('sinon');
 
 var serverPath = Path.resolve(__dirname, './node_process_for_test.js');
+var serverPathSpace = Path.resolve(__dirname, './with space/sleep with space');
 var UpperCaseArg = '--UPPER_CASE';
 var child = null;
 var pid = null;
@@ -194,6 +195,26 @@ describe('test', function () {
         });
         clock.tick(5 * 1000);
       });
+    });
+  });
+});
+
+// don't run on Windows
+(process.platform === 'win32' ? describe.skip : describe)('test command with space', function () { 
+  before(function () {
+    child = CP.spawn(serverPathSpace);
+    pid = child.pid;
+  });
+
+  afterEach(killProcess);
+
+  it('by command with space in path', function (done) {
+    PS.lookup({pid: pid}, function (err, list) {
+      assert.equal(list.length, 1);
+      assert.equal(list[0].pid, pid);
+      assert.equal(list[0].command, '/bin/bash');
+      assert.equal(list[0].arguments[0], serverPathSpace);
+      done();
     });
   });
 });
