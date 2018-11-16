@@ -52,6 +52,29 @@ describe('test', function () {
 
   beforeEach(startProcess);
 
+  describe('#exits()',function(){
+    afterEach(killProcess);
+
+    it('by id', function(done){
+      PS.exists({pid: pid}).then(exists=>{
+        assert.equal(exists, true);
+        done();        
+      });
+    });
+  });
+
+  describe('#lookupPromise()',function(){
+    afterEach(killProcess);
+
+    it('by id', function(done){
+      PS.lookupPromise({pid: pid}).then(list=>{
+        assert.equal(list.length, 1);
+        assert.equal(list[0].arguments[0], serverPath);
+        done();        
+      });
+    });
+  });
+
   describe('#lookup()', function () {
 
     afterEach(killProcess);
