@@ -1,8 +1,11 @@
 environment:
   matrix:
+    - nodejs_version: "8"
     - nodejs_version: "7"
     - nodejs_version: '6'
-    - nodejs_version: '4'
+    #- nodejs_version: '4'
+pull_requests:
+  do_not_increment_build_number: true
 install:
   - ps: Install-Product node $env:nodejs_version
   - set CI=true
