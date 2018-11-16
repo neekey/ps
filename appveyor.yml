@@ -5,10 +5,10 @@ environment:
     - nodejs_version: '6'
     - nodejs_version: '4'
 install:
-  - ps: Install-Product node $env:nodejs_version
-  - set CI=true
   - npm -g install npm@latest
   - set PATH=%APPDATA%\npm;%PATH%
+  - ps: Install-Product node $env:nodejs_version
+  - set CI=true
   - npm install
 matrix:
   fast_finish: true
