@@ -79,7 +79,7 @@ Also, you can use `kill` to kill process by `pid`:
 ```javascript
 var ps = require('ps-node');
 
-// A simple pid lookup
+// Kill process by pid
 ps.kill( '12345', function( err ) {
     if (err) {
         throw new Error( err );
